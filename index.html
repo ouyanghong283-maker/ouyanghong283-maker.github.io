@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN" data-theme="light">
 <head>
   <meta charset="UTF-8">
@@ -7,6 +7,65 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="intro-overlay" id="introOverlay">
+    <div class="intro-backdrop">
+      <div class="intro-grid"></div>
+      <div class="intro-data-bars">
+        <span class="idb" style="left:10%;height:30%;animation-delay:0s"></span>
+        <span class="idb" style="left:25%;height:50%;animation-delay:0.3s"></span>
+        <span class="idb" style="left:45%;height:20%;animation-delay:0.15s"></span>
+        <span class="idb" style="left:65%;height:40%;animation-delay:0.5s"></span>
+        <span class="idb" style="left:80%;height:25%;animation-delay:0.2s"></span>
+        <span class="idb" style="left:90%;height:35%;animation-delay:0.4s"></span>
+      </div>
+    </div>
+    <div class="intro-center">
+      <svg class="intro-logo-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="introGrad" x1="0" y1="0" x2="120" y2="120">
+            <stop offset="0%" stop-color="#06b6d4"/>
+            <stop offset="100%" stop-color="#818cf8"/>
+          </linearGradient>
+          <linearGradient id="introGradPulse" x1="60" y1="0" x2="60" y2="120">
+            <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.12"/>
+            <stop offset="100%" stop-color="#818cf8" stop-opacity="0.04"/>
+          </linearGradient>
+        </defs>
+        <g class="intro-hex-group">
+          <polygon points="60,12 98,34 98,86 60,108 22,86 22,34" stroke="url(#introGrad)" stroke-width="2" fill="url(#introGradPulse)" class="intro-hex-fill"/>
+          <polygon points="60,12 98,34 98,86 60,108 22,86 22,34" stroke="url(#introGrad)" stroke-width="2" fill="none" class="intro-hex-outline"/>
+        </g>
+        <g class="intro-nodes" opacity="0">
+          <circle cx="34" cy="34" r="2" fill="url(#introGrad)"/>
+          <circle cx="86" cy="34" r="2" fill="url(#introGrad)"/>
+          <circle cx="34" cy="86" r="2" fill="url(#introGrad)"/>
+          <circle cx="86" cy="86" r="2" fill="url(#introGrad)"/>
+          <line x1="34" y1="34" x2="48" y2="48" stroke="url(#introGrad)" stroke-width="0.8" opacity="0.3"/>
+          <line x1="86" y1="34" x2="72" y2="48" stroke="url(#introGrad)" stroke-width="0.8" opacity="0.3"/>
+          <line x1="34" y1="86" x2="48" y2="72" stroke="url(#introGrad)" stroke-width="0.8" opacity="0.3"/>
+          <line x1="86" y1="86" x2="72" y2="72" stroke="url(#introGrad)" stroke-width="0.8" opacity="0.3"/>
+        </g>
+        <g class="intro-eye" opacity="0">
+          <path d="M41 60 Q60 42 79 60 Q60 78 41 60Z" stroke="url(#introGrad)" stroke-width="2" fill="none"/>
+          <circle cx="60" cy="60" r="2.5" fill="url(#introGrad)"/>
+        </g>
+        <g class="intro-pulse" opacity="0">
+          <circle cx="60" cy="60" r="9" stroke="url(#introGrad)" stroke-width="1.5" opacity="0" class="intro-pulse-r1"/>
+          <circle cx="60" cy="60" r="14" stroke="url(#introGrad)" stroke-width="1" opacity="0" class="intro-pulse-r2"/>
+          <circle cx="60" cy="60" r="20" stroke="url(#introGrad)" stroke-width="0.6" opacity="0" class="intro-pulse-r3"/>
+        </g>
+        <g class="intro-brackets" opacity="0">
+          <rect x="19" y="54" width="6" height="12" rx="2" fill="none" stroke="url(#introGrad)" stroke-width="1.5"/>
+          <rect x="95" y="54" width="6" height="12" rx="2" fill="none" stroke="url(#introGrad)" stroke-width="1.5"/>
+          <rect x="54" y="19" width="12" height="6" rx="2" fill="none" stroke="url(#introGrad)" stroke-width="1.5"/>
+          <rect x="54" y="95" width="12" height="6" rx="2" fill="none" stroke="url(#introGrad)" stroke-width="1.5"/>
+        </g>
+      </svg>
+      <p class="intro-tagline">Consumer Insight Agent</p>
+    </div>
+    <div class="intro-skip-hint">按任意键跳过</div>
+  </div>
+
   <nav class="navbar">
     <div class="nav-inner">
       <a href="#hero" class="nav-logo">Konye</a>
@@ -31,7 +90,7 @@
     <div class="hero-content">
       <h1>欧阳宏<span class="hero-name-sub">（Konye）</span></h1>
       <p class="hero-subtitle">2026 年应届毕业生 · 产品经理方向</p>
-      <p class="hero-desc">擅长 vibe coding harness、机器学习数据分析与消费者洞察，善于将技术能力转化为产品落地。</p>
+      <p class="hero-desc">擅长规约驱动开发（SDD）、AI 协作与机器学习数据分析，坚持以判断定边界，以 AI 做执行。</p>
       <div class="hero-highlight">
         <div class="highlight-icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
@@ -47,33 +106,44 @@
     </div>
   </section>
 
-  <section id="about" class="section">
+  
+
+<section id="about" class="section">
     <div class="section-inner">
       <h2>教育背景</h2>
       <div class="education-grid">
         <div class="edu-card">
+          
           <div class="edu-header">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 3 3 6 3s6-1 6-3v-5"/></svg>
-            <span>2025.09 — 2026.06</span>
+            <span>2025.09 --- 2026.06</span>
           </div>
           <h3>香港城市大学</h3>
           <p class="edu-degree">工商管理硕士</p>
           <p class="edu-detail">GPA 3.3 / 前 15%</p>
+          <div class="edu-intro">
+            <div class="edu-rank-badge">QS 2027 #52</div>
+            <p>QS 2027 全球第 52 位，论文引用率高居全球第 2、亚洲第一。国际学生比例全球第 11、教研人员比例全球第 16，均居香港之首，以科研转化与创新创业见长。</p>
+          </div>
         </div>
         <div class="edu-card">
+          
           <div class="edu-header">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 3 3 6 3s6-1 6-3v-5"/></svg>
-            <span>2019.08 — 2023.09</span>
+            <span>2019.08 --- 2023.09</span>
           </div>
           <h3>马来西亚国立大学</h3>
           <p class="edu-degree">工商管理学士</p>
           <p class="edu-detail">GPA 3.31 / 前 15% · Dean Award 前 5%</p>
+          <div class="edu-intro">
+            <div class="edu-rank-badge">QS 2027 #130</div>
+            <p>QS 2027 全球第 130 位，稳居全球前 150 及前 2%，马来西亚公立五强之一。以研究密集型著称，生物医学、工程与环境科学等领域享誉东南亚。</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
-
-  <section id="skills" class="section section-alt">
+<section id="skills" class="section section-alt">
     <div class="section-inner">
       <h2>技能</h2>
       <div class="skills-grid">
@@ -98,8 +168,8 @@
         <div class="skill-category">
           <h3>开发工具</h3>
           <ul class="skill-list">
-            <li>vibe coding harness</li>
-            <li>AI 辅助 React/Tailwind</li>
+            <li>SDD 规约开发</li>
+            <li>AI 协作开发</li>
             <li>Node.js</li>
             <li>Stitch</li>
           </ul>
@@ -162,25 +232,46 @@
     </div>
   </section>
 
-  <section id="projects" class="section section-alt">
+  
+
+
+<section id="projects" class="section section-alt section-projects-tech">
     <div class="section-inner">
       <h2>项目经历</h2>
       <div class="projects-grid">
-        <div class="project-card project-featured">
-          <div class="project-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          </div>
-          <div class="project-meta">
-            <span class="project-date">2025.09 — 2026.06</span>
-            <span class="project-role">智能软硬件高级产品经理</span>
+
+        <div class="project-card project-movify-tech">
+          <div class="agent-card-header">
+            <div class="agent-logo-wrap">
+              <svg class="agent-logo" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="mvGrad" x1="0" y1="0" x2="80" y2="80">
+                    <stop offset="0%" stop-color="#f59e0b"/>
+                    <stop offset="100%" stop-color="#f97316"/>
+                  </linearGradient>
+                </defs>
+                <circle cx="40" cy="40" r="28" stroke="url(#mvGrad)" stroke-width="2.5" fill="none"/>
+                <polyline points="18,42 26,42 30,32 34,50 38,36 42,46 46,32 50,42 62,42" stroke="url(#mvGrad)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <polygon points="40,22 41.8,27.5 47.5,28.5 43,33 44.3,38.5 40,36 35.7,38.5 37,33 32.5,28.5 38.2,27.5" fill="url(#mvGrad)" opacity="0.85"/>
+                <circle cx="40" cy="40" r="2.5" fill="url(#mvGrad)"/>
+                <circle cx="40" cy="40" r="8" stroke="url(#mvGrad)" stroke-width="0.6" opacity="0.25"/>
+              </svg>
+            </div>
+            <div class="agent-card-title-area">
+              <div class="project-badge project-badge-movify">核心项目</div>
+              <div class="project-meta">
+                <span class="project-date">2025.09 -- 2026.06</span>
+                <span class="project-role">智能软硬件高级产品经理</span>
+              </div>
+            </div>
           </div>
           <h3>Movify 智能健身腕带</h3>
-          <p>面向香港高校运动社团及健身房的智能健身穿戴设备。主导立项、MVP 验证与融资展示，推动与香港城市大学 IDF-610 专利技术合作，确定 XGBoost 为 MVP 动作识别基线模型，使用 Claude Sonnet 4.5 辅助编写 React/Tailwind 原型代码完成可演示界面。协调工业设计与技术资源，对接多家硬件厂商谈判获得小批量 ODM 方案，降低验证阶段资金约 30 万。</p>
+          <p>面向香港高校运动社群与健身房的智能穿戴产品。从 0 到 1 主导立项、竞品拆解与 MVP 验证，推动与香港城市大学 IDF-610 专利技术合作，锁定 XGBoost 为动作识别基线模型，并在 SDD 规约框架下由 Claude Sonnet 4.5 生成 React / Tailwind 可演示原型。独立协调工业设计与供应链资源，经多轮谈判锁定小批量 ODM 方案，为验证期节省近 30 万港元资金投入。</p>
           <div class="project-tags">
             <span>产品管理</span>
-            <span>AI/ML</span>
-            <span>React/Tailwind</span>
-            <span>硬件对接</span>
+            <span>AI / ML</span>
+            <span>React / Tailwind</span>
+            <span>硬件供应链</span>
           </div>
           <div class="project-awards">
             <div class="award-badge">
@@ -197,11 +288,105 @@
             </div>
           </div>
         </div>
+
+        <div class="project-card project-agent-tech">
+          <div class="agent-card-header">
+            <div class="agent-logo-wrap">
+              <svg class="agent-logo" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="agGrad" x1="0" y1="0" x2="80" y2="80">
+                    <stop offset="0%" stop-color="#06b6d4"/>
+                    <stop offset="100%" stop-color="#818cf8"/>
+                  </linearGradient>
+                </defs>
+                <polygon points="40,8 65,22 65,58 40,72 15,58 15,22" stroke="url(#agGrad)" stroke-width="2" fill="none"/>
+                <path d="M27 40 Q40 28 53 40 Q40 52 27 40Z" stroke="url(#agGrad)" stroke-width="1.8" fill="none"/>
+                <circle cx="40" cy="40" r="3" fill="url(#agGrad)"/>
+                <circle cx="40" cy="40" r="9" stroke="url(#agGrad)" stroke-width="0.8" opacity="0.3"/>
+                <circle cx="40" cy="40" r="15" stroke="url(#agGrad)" stroke-width="0.5" opacity="0.15"/>
+                <circle cx="25" cy="25" r="1.5" fill="url(#agGrad)" opacity="0.5"/>
+                <circle cx="55" cy="25" r="1.5" fill="url(#agGrad)" opacity="0.5"/>
+                <circle cx="25" cy="55" r="1.5" fill="url(#agGrad)" opacity="0.5"/>
+                <circle cx="55" cy="55" r="1.5" fill="url(#agGrad)" opacity="0.5"/>
+                <line x1="25" y1="25" x2="32" y2="32" stroke="url(#agGrad)" stroke-width="0.5" opacity="0.2"/>
+                <line x1="55" y1="25" x2="48" y2="32" stroke="url(#agGrad)" stroke-width="0.5" opacity="0.2"/>
+                <line x1="25" y1="55" x2="32" y2="48" stroke="url(#agGrad)" stroke-width="0.5" opacity="0.2"/>
+                <line x1="55" y1="55" x2="48" y2="48" stroke="url(#agGrad)" stroke-width="0.5" opacity="0.2"/>
+                <rect x="35.5" y="48" width="9" height="3" rx="1.5" fill="url(#agGrad)" opacity="0.6"/>
+                <rect x="35.5" y="29" width="9" height="3" rx="1.5" fill="url(#agGrad)" opacity="0.6"/>
+              </svg>
+            </div>
+            <div class="agent-card-title-area">
+              <div class="project-meta">
+                <span class="project-date">2025.09 -- 2026.06</span>
+                <span class="project-role">AI 产品研究 * 消费者洞察</span>
+              </div>
+            </div>
+          </div>
+          <h3>US&amp;HK 智能穿戴消费者洞察与受约束算法匹配</h3>
+          <p>融合消费者研究、竞品分析和 AI Agent 设计的研究原型。以美国和香港智能穿戴市场为范围，围绕睡眠恢复、耐力训练、力量训练和日常健康管理等任务，探索如何将公开消费者表达转化为可追溯的产品机会，并在工程师定义的数据和算法边界内完成候选过滤、排序与安全解释。原型已实现 DeepSeek 执行与 Codex 独立复核、SQLite 证据账本、60 项自动化测试、数据质量门与受约束匹配流程。</p>
+          <div class="project-tags">
+            <span>消费者洞察</span>
+            <span>AI Agent</span>
+            <span>数据治理</span>
+            <span>竞品分析</span>
+            <span>SQLite</span>
+            <span>自动化测试</span>
+          </div>
+          <div class="project-highlights">
+            <div class="highlight-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              WHOOP 5.0 / Oura Ring 4 / Garmin 970 / Enode 竞品框架
+            </div>
+            <div class="highlight-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              数据质量门：Pass / Conditional Pass / Hold / Fail
+            </div>
+            <div class="highlight-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              受约束算法匹配：硬过滤 - 排序 - 解释 - 安全拒绝
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card project-website">
+          <div class="project-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <div class="project-meta">
+            <span class="project-date">2026.08</span>
+            <span class="project-role">独立开发 * 产品设计</span>
+          </div>
+          <h3>个人作品集网站</h3>
+          <p>以 <strong>规约驱动开发（SDD）</strong> 方式完成：先以结构化需求文档锁定页面架构、响应式策略与交互边界，再将规约作为约束输入交由 Claude Sonnet 4.5 生成代码。深色 / 浅色主题切换、滚动动画节拍、移动端导航策略等核心设计均经人工判断把关。人定边界，AI 做执行 --- 不是代劳，是被驾驭。</p>
+          <div class="project-tags">
+            <span>HTML5 / CSS3</span>
+            <span>JavaScript</span>
+            <span>SDD 规约开发</span>
+            <span>AI 协作开发</span>
+            <span>Dark Mode</span>
+            <span>响应式设计</span>
+          </div>
+          <div class="project-highlights">
+            <div class="highlight-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              深色 / 浅色主题即时切换，跟随系统偏好
+            </div>
+            <div class="highlight-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              Intersection Observer 驱动的滚动入场动画
+            </div>
+            <div class="highlight-item">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              移动端自适应导航栏与全响应式布局
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
-
-  <section id="contact" class="section">
+<section id="contact" class="section">
     <div class="section-inner">
       <h2>联系我</h2>
       <p class="contact-intro">欢迎通过以下方式与我联系。</p>

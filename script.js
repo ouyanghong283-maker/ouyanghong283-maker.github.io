@@ -1,6 +1,46 @@
 (function () {
   "use strict";
 
+  /* Intro animation */
+  var introOverlay = document.getElementById("introOverlay");
+  if (introOverlay) {
+    var introHidden = false;
+    var AUTO_HIDE_DELAY = 4200;
+
+    function hideIntro() {
+      if (introHidden) return;
+      introHidden = true;
+      introOverlay.classList.add("hidden");
+      document.body.style.overflow = "";
+      setTimeout(function () {
+        if (introOverlay.parentNode) introOverlay.parentNode.removeChild(introOverlay);
+      }, 800);
+    }
+
+    document.body.style.overflow = "hidden";
+
+    var autoTimer = setTimeout(hideIntro, AUTO_HIDE_DELAY);
+
+    document.addEventListener("keydown", function handler(e) {
+      clearTimeout(autoTimer);
+      hideIntro();
+      document.removeEventListener("keydown", handler);
+    });
+
+    introOverlay.addEventListener("click", function () {
+      clearTimeout(autoTimer);
+      hideIntro();
+    });
+
+    /* Nested: re-trigger scroll-reveal after intro hides */
+    var origObserve = null;
+    document.addEventListener("scroll", function checkReveal() {
+      if (!introHidden) return;
+      /* Force a quick scroll tick to trigger intersection observer */
+      window.dispatchEvent(new Event("scroll"));
+    }, { once: false });
+  }
+
   var STORAGE_KEY = "konye-theme";
   var themeToggle = document.getElementById("themeToggle");
   var html = document.documentElement;
@@ -79,7 +119,7 @@
 
   /* Scroll-reveal animations */
   var revealEls = document.querySelectorAll(
-    ".edu-card, .skill-category, .timeline-content, .project-card, .contact-link"
+    ".edu-card, .skill-category, .timeline-content, .project-card, .highlight-item, .contact-link"
   );
 
   revealEls.forEach(function (el) {
